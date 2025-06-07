@@ -1,5 +1,4 @@
-﻿Console.Write("Please type your name: ");
-string name = Console.ReadLine();
+﻿string name = GetName();
 DateTime date = DateTime.UtcNow;
 
 Menu(name, date);
@@ -61,4 +60,11 @@ void SubstractionGame(string message)
 void AdditionGame(string message)
 {
     Console.WriteLine(message);
+}
+
+static string GetName()
+{
+    Console.Write("Please type your name: ");
+    string name = Console.ReadLine();
+    return name;
 }
