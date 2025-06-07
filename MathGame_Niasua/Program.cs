@@ -15,28 +15,47 @@ Console.WriteLine("------------------------------------------------------");
 
 string gameSelected = Console.ReadLine();
 
-if(gameSelected.Trim().ToLower() == "a")
+switch(gameSelected.Trim().ToLower())
 {
-    Console.WriteLine("Addition game selected");
+    case "a":
+        AdditionGame("Addition game selected");
+        break;
+    case "s":
+        SubstractionGame("Substraction game selected");
+        break;
+    case "m":
+        MultiplicationGame("Multiplication game selected");
+        break;
+    case "d":
+        DivisionGame("Division game selected");
+        break;
+    case "q":
+        Console.WriteLine("Goodbye");
+        Environment.Exit(1);
+        break;
+    default:
+        Console.WriteLine("Invalid input");
+        Environment.Exit(1);
+        break;
 }
-else if (gameSelected.Trim().ToLower() == "s")
+
+
+void DivisionGame(string message)
 {
-    Console.WriteLine("Substraction game selected");
+    Console.WriteLine(message);
 }
-else if (gameSelected.Trim().ToLower() == "m")
+
+void MultiplicationGame(string message)
 {
-    Console.WriteLine("Multiplication game selected");
+    Console.WriteLine(message);
 }
-else if (gameSelected.Trim().ToLower() == "d")
+
+void SubstractionGame(string message)
 {
-    Console.WriteLine("Division game selected");
+    Console.WriteLine(message);
 }
-else if (gameSelected.Trim().ToLower() == "q")
+
+void AdditionGame(string message)
 {
-    Console.WriteLine("Goodbye");
-    Environment.Exit(1);
-}
-else
-{
-    Console.WriteLine("Invalid input");
+    Console.WriteLine(message);
 }
