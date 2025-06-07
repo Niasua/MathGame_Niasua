@@ -16,39 +16,48 @@ void Menu(string name)
     Console.WriteLine("------------------------------------------------------");
     Console.WriteLine($"Hello {name}. It's {date}. This is your math's game. ");
     Console.WriteLine("\n");
-    Console.WriteLine(@$"What game would you like to play? Choose from the options below: 
-    A - Addition
-    S - Substraction
-    M - Multiplication
-    D - Division
-    Q - Quit the program");
-    Console.WriteLine("------------------------------------------------------");
+    Console.ReadLine();
 
-    string gameSelected = Console.ReadLine();
+    bool isGameOn = true;
 
-    switch (gameSelected.Trim().ToLower())
+    do
     {
-        case "a":
-            AdditionGame("Addition game selected");
-            break;
-        case "s":
-            SubstractionGame("Substraction game selected");
-            break;
-        case "m":
-            MultiplicationGame("Multiplication game selected");
-            break;
-        case "d":
-            DivisionGame("Division game selected");
-            break;
-        case "q":
-            Console.WriteLine("Goodbye");
-            Environment.Exit(1);
-            break;
-        default:
-            Console.WriteLine("Invalid input");
-            Environment.Exit(1);
-            break;
-    }
+        Console.Clear();
+        Console.WriteLine(@$"What game would you like to play? Choose from the options below:
+
+                A - Addition
+                S - Substraction
+                M - Multiplication
+                D - Division
+                Q - Quit the program");
+
+        Console.WriteLine("------------------------------------------------------");
+
+        string gameSelected = Console.ReadLine();
+
+        switch (gameSelected.Trim().ToLower())
+        {
+            case "a":
+                AdditionGame("Addition game selected");
+                break;
+            case "s":
+                SubstractionGame("Substraction game selected");
+                break;
+            case "m":
+                MultiplicationGame("Multiplication game selected");
+                break;
+            case "d":
+                DivisionGame("Division game selected");
+                break;
+            case "q":
+                Console.WriteLine("Goodbye");
+                isGameOn = false;
+                break;
+            default:
+                Console.WriteLine("Invalid input");
+                break;
+        }
+    } while (isGameOn);
 }
 void DivisionGame(string message)
 {
@@ -78,7 +87,11 @@ void DivisionGame(string message)
             Console.ReadLine();
         }
 
-        if (i == 4) Console.WriteLine($"Game over. Your final score is {score}");
+        if (i == 4)
+        {
+            Console.WriteLine($"Game over. Your final score is {score}");
+            Console.ReadLine();
+        }
     }
 
 }
@@ -109,7 +122,11 @@ void MultiplicationGame(string message)
             Console.ReadLine();
         }
 
-        if (i == 4) Console.WriteLine($"Game over. Your final score is {score}");
+        if (i == 4)
+        {
+            Console.WriteLine($"Game over. Your final score is {score}");
+            Console.ReadLine();
+        }
     }
 }
 void SubstractionGame(string message)
@@ -139,7 +156,11 @@ void SubstractionGame(string message)
             Console.ReadLine();
         }
 
-        if (i == 4) Console.WriteLine($"Game over. Your final score is {score}");
+        if (i == 4)
+        {
+            Console.WriteLine($"Game over. Your final score is {score}");
+            Console.ReadLine();
+        }
     }
 }
 void AdditionGame(string message)
@@ -169,7 +190,11 @@ void AdditionGame(string message)
             Console.ReadLine();
         }
 
-        if (i == 4) Console.WriteLine($"Game over. Your final score is {score}");
+        if (i == 4)
+        {
+            Console.WriteLine($"Game over. Your final score is {score}");
+            Console.ReadLine();
+        }
     }
 }
 
@@ -182,7 +207,8 @@ int[] GetDivisionNumbers()
     int[] result = new int[2];
 
     // the division must result in an integer
-    while(firstNumber % secondNumber != 0)
+    // the second number must be != 0 and greater than the first number
+    while(firstNumber % secondNumber != 0 && secondNumber == 0 && secondNumber > firstNumber)
     {
         firstNumber = Random.Next(0, 99);
         secondNumber = Random.Next(0, 99);
