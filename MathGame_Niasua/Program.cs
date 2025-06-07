@@ -1,7 +1,10 @@
 ﻿using System;
 
-string name = GetName();
 DateTime date = DateTime.UtcNow;
+
+var games = new List<string>();
+
+string name = GetName();
 
 Menu(name);
 
@@ -24,7 +27,8 @@ void Menu(string name)
     {
         Console.Clear();
         Console.WriteLine(@$"What game would you like to play? Choose from the options below:
-
+                
+                V - View Previous Games
                 A - Addition
                 S - Substraction
                 M - Multiplication
@@ -37,6 +41,9 @@ void Menu(string name)
 
         switch (gameSelected.Trim().ToLower())
         {
+            case "v":
+                GetGames();
+                break;
             case "a":
                 AdditionGame("Addition game selected");
                 break;
@@ -59,6 +66,8 @@ void Menu(string name)
         }
     } while (isGameOn);
 }
+
+
 void DivisionGame(string message)
 {
     var score = 0;
@@ -94,6 +103,7 @@ void DivisionGame(string message)
         }
     }
 
+    AddToHistory(score, "Division");
 }
 void MultiplicationGame(string message)
 {
@@ -128,6 +138,8 @@ void MultiplicationGame(string message)
             Console.ReadLine();
         }
     }
+
+    AddToHistory(score, "Multiplication");
 }
 void SubstractionGame(string message)
 {
@@ -162,6 +174,8 @@ void SubstractionGame(string message)
             Console.ReadLine();
         }
     }
+
+    AddToHistory(score, "Substraction");
 }
 void AdditionGame(string message)
 {
@@ -196,8 +210,9 @@ void AdditionGame(string message)
             Console.ReadLine();
         }
     }
-}
 
+    AddToHistory(score, "Addition");
+}
 int[] GetDivisionNumbers()
 {
     Random Random = new Random();
@@ -218,4 +233,21 @@ int[] GetDivisionNumbers()
     result[1] = secondNumber;
 
     return result;
+}
+void GetGames()
+{
+    Console.Clear();
+    Console.WriteLine("Games History");
+    Console.WriteLine("------------------------------------------------------");
+    foreach (var game in games)
+    {
+        Console.WriteLine(game);
+    }
+    Console.WriteLine("------------------------------------------------------\n");
+    Console.WriteLine("Press any key to go back to the menu");
+    Console.ReadLine();
+}
+void AddToHistory(int score, string game)
+{
+    games.Add($"{DateTime.Now} - {game}: Score {score}");
 }
