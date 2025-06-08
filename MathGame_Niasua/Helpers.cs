@@ -1,4 +1,5 @@
 ﻿using MathGame_Niasua.Models;
+using System.Linq;
 
 namespace MathGame_Niasua;
 internal class Helpers
@@ -48,6 +49,8 @@ internal class Helpers
     }
     internal static void PrintGames()
     {
+        var gamesToPrint = games.Where(x => x.Type == GameType.Division);
+
         Console.Clear();
         Console.WriteLine("Games History");
         Console.WriteLine("------------------------------------------------------");
