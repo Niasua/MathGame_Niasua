@@ -44,7 +44,7 @@ internal class Helpers
         Console.WriteLine("Press any key to go back to the menu");
         Console.ReadLine();
     }
-    internal static void AddToHistory(int score, string game)
+    internal static void AddToHistory(int score, GameType game)
     {
         games.Add(new Game
         {

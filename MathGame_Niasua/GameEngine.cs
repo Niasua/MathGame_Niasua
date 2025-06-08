@@ -1,4 +1,6 @@
-﻿namespace MathGame_Niasua;
+﻿using MathGame_Niasua.Models;
+
+namespace MathGame_Niasua;
 internal class GameEngine
 {
     internal void DivisionGame(string message)
@@ -36,7 +38,7 @@ internal class GameEngine
             }
         }
 
-        Helpers.AddToHistory(score, "Division");
+        Helpers.AddToHistory(score, GameType.Division);
     }
     internal void MultiplicationGame(string message)
     {
@@ -72,7 +74,7 @@ internal class GameEngine
             }
         }
 
-        Helpers.AddToHistory(score, "Multiplication");
+        Helpers.AddToHistory(score, GameType.Multiplication);
     }
     internal void SubstractionGame(string message)
     {
@@ -108,7 +110,7 @@ internal class GameEngine
             }
         }
 
-        Helpers.AddToHistory(score, "Substraction");
+        Helpers.AddToHistory(score, GameType.Substraction);
     }
     internal void AdditionGame(string message)
     {
@@ -144,6 +146,6 @@ internal class GameEngine
             }
         }
 
-        Helpers.AddToHistory(score, "Addition");
+        Helpers.AddToHistory(score, GameType.Addition);
     }
 }
