@@ -1,7 +1,9 @@
-﻿namespace MathGame_Niasua;
+﻿using MathGame_Niasua.Models;
+
+namespace MathGame_Niasua;
 internal class Helpers
 {
-    static List<string> games = new();
+    internal static List<Game> games = new();
     internal static string GetName()
     {
         Console.Write("Please type your name: ");
@@ -29,14 +31,14 @@ internal class Helpers
 
         return result;
     }
-    internal static void GetGames()
+    internal static void PrintGames()
     {
         Console.Clear();
         Console.WriteLine("Games History");
         Console.WriteLine("------------------------------------------------------");
         foreach (var game in games)
         {
-            Console.WriteLine(game);
+            Console.WriteLine($"{game.Date} - {game.Type}: {game.Score}");
         }
         Console.WriteLine("------------------------------------------------------\n");
         Console.WriteLine("Press any key to go back to the menu");
@@ -44,7 +46,12 @@ internal class Helpers
     }
     internal static void AddToHistory(int score, string game)
     {
-        games.Add($"{DateTime.Now} - {game}: Score {score}");
+        games.Add(new Game
+        {
+            Date = DateTime.Now,
+            Score = score,
+            Type = game
+        });
     }
 }
 
