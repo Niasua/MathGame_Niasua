@@ -76,7 +76,7 @@ internal class GameEngine
 
         Helpers.AddToHistory(score, GameType.Multiplication);
     }
-    internal void SubstractionGame(string message)
+    internal void SubtractionGame(string message)
     {
         Random random = new Random();
         var score = 0;
@@ -110,7 +110,7 @@ internal class GameEngine
             }
         }
 
-        Helpers.AddToHistory(score, GameType.Substraction);
+        Helpers.AddToHistory(score, GameType.Subtraction);
     }
     internal void AdditionGame(string message)
     {

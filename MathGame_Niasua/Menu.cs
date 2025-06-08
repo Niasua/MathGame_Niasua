@@ -36,7 +36,7 @@ internal class Menu
                     gameEngine.AdditionGame("Addition game selected");
                     break;
                 case "s":
-                    gameEngine.SubstractionGame("Substraction game selected");
+                    gameEngine.SubtractionGame("Subtraction game selected");
                     break;
                 case "m":
                     gameEngine.MultiplicationGame("Multiplication game selected");
