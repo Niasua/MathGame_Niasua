@@ -1,60 +1,59 @@
-﻿namespace MathGame_Niasua
+﻿namespace MathGame_Niasua;
+internal class Menu
 {
-    internal class Menu
+    GameEngine gameEngine = new();
+    internal void ShowMenu(string name, DateTime date)
     {
-        GameEngine gameEngine = new();
-        internal void ShowMenu(string name, DateTime date)
+        Console.WriteLine("------------------------------------------------------");
+        Console.WriteLine($"Hello {name}. It's {date}. This is your math's game. ");
+        Console.WriteLine("\n");
+        Console.ReadLine();
+
+        bool isGameOn = true;
+
+        do
         {
-            Console.WriteLine("------------------------------------------------------");
-            Console.WriteLine($"Hello {name}. It's {date}. This is your math's game. ");
-            Console.WriteLine("\n");
-            Console.ReadLine();
-
-            bool isGameOn = true;
-
-            do
-            {
-                Console.Clear();
-                Console.WriteLine(@$"What game would you like to play? Choose from the options below:
+            Console.Clear();
+            Console.WriteLine(@$"What game would you like to play? Choose from the options below:
                 
-                V - View Previous Games
-                A - Addition
-                S - Substraction
-                M - Multiplication
-                D - Division
-                Q - Quit the program");
+            V - View Previous Games
+            A - Addition
+            S - Substraction
+            M - Multiplication
+            D - Division
+            Q - Quit the program");
 
-                Console.WriteLine("------------------------------------------------------");
+            Console.WriteLine("------------------------------------------------------");
 
-                string gameSelected = Console.ReadLine();
+            string gameSelected = Console.ReadLine();
 
-                switch (gameSelected.Trim().ToLower())
-                {
-                    case "v":
-                        Helpers.GetGames();
-                        break;
-                    case "a":
-                        gameEngine.AdditionGame("Addition game selected");
-                        break;
-                    case "s":
-                        gameEngine.SubstractionGame("Substraction game selected");
-                        break;
-                    case "m":
-                        gameEngine.MultiplicationGame("Multiplication game selected");
-                        break;
-                    case "d":
-                        gameEngine.DivisionGame("Division game selected");
-                        break;
-                    case "q":
-                        Console.WriteLine("Goodbye");
-                        isGameOn = false;
-                        break;
-                    default:
-                        Console.WriteLine("Invalid input");
-                        break;
-                }
-            } while (isGameOn);
-        }
-
+            switch (gameSelected.Trim().ToLower())
+            {
+                case "v":
+                    Helpers.GetGames();
+                    break;
+                case "a":
+                    gameEngine.AdditionGame("Addition game selected");
+                    break;
+                case "s":
+                    gameEngine.SubstractionGame("Substraction game selected");
+                    break;
+                case "m":
+                    gameEngine.MultiplicationGame("Multiplication game selected");
+                    break;
+                case "d":
+                    gameEngine.DivisionGame("Division game selected");
+                    break;
+                case "q":
+                    Console.WriteLine("Goodbye");
+                    isGameOn = false;
+                    break;
+                default:
+                    Console.WriteLine("Invalid input");
+                    break;
+            }
+        } while (isGameOn);
     }
+
 }
+
