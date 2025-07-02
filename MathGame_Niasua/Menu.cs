@@ -4,10 +4,12 @@ internal class Menu
     GameEngine gameEngine = new();
     internal void ShowMenu(string name, DateTime date)
     {
+        Console.Clear();
         Console.WriteLine("------------------------------------------------------");
         Console.WriteLine($"Hello {name}. It's {date}. This is your math's game. ");
-        Console.WriteLine("\n");
+        Console.WriteLine("Press any key to show menu");
         Console.ReadLine();
+        Console.WriteLine("\n");
 
         bool isGameOn = true;
 
